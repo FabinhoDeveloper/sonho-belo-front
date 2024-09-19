@@ -1,0 +1,1 @@
+// Módulo que fará o login e gestão de sessoes com o Back-End

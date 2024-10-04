@@ -14,6 +14,7 @@ const cors = require("cors")
 
 const mainRoutes = require("./routes/main-routes")
 const adminRoutes = require("./routes/admin-routes")
+const autenticacaoRoutes = require("./services/login")
 
 // Chamada inicial do express
 
@@ -25,8 +26,17 @@ app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+// Configurações de Middlewares gerais
+
 app.use(express.json());
 app.use(cors());
+
+app.use(session({
+    secret: 'process.env.SESSION_SECRET', // chave secreta para criptografia da sessão
+    resave: true,
+    saveUninitialized: false,
+    cookie: { secure: false } // Em produção, isso deve ser 'true' se usar HTTPS
+}));
 
 // Middleware para servir arquivos estáticos (CSS, JS)
 
@@ -37,6 +47,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/", mainRoutes)
 app.use("/admin", adminRoutes)
+app.use("/login", autenticacaoRoutes)
 
 // Instanciamento do servidor
 

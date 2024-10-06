@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Fundo suave */
+    color: #333;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #ffffff; /* Branco para a navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hero {
+    background-image: url('sua-imagem-de-fundo.jpg'); /* Imagem de fundo da seção Hero */
+    background-size: cover; /* Ajusta a imagem de fundo para cobrir toda a seção */
+    background-position: center; /* Centraliza a imagem de fundo */
+    height: 80vh; /* 80% da altura da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    text-align: center;
+}
+
+.hero-content {
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente para melhor legibilidade */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.sobre {
+    background-color: #FFE4E1; /* Tom pastel para a seção Sobre */
+    height: 80vh; /* 80% da altura da tela */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    padding: 20px; /* Adiciona um pouco de padding */
+}
+
+.produtos {
+    height: auto; /* Deixa a altura automática */
+    margin-top: 50px; /* Margem superior */
+    padding: 20px; /* Adiciona espaçamento */
+}
+
+.contato {
+    background-color: #e6e6fa; /* Tom pastel para a seção Contato */
+    height: 80vh; /* 80% da altura da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    padding: 20px; /* Espaçamento interno */
+}
+
+.custom-card {
+    border: none; /* Remove a borda padrão do Bootstrap */
+    border-radius: 15px; /* Arredonda os cantos dos cards */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s; /* Efeito de transição ao passar o mouse */
+    background-color: #ffffff; /* Fundo branco dos cards */
+}
+
+.custom-card:hover {
+    transform: scale(1.05); /* Aumenta o card ao passar o mouse */
+}
+
+.custom-btn {
+    background-color: #F7BAB2; /* Cor personalizada do botão */
+    color: white; /* Cor do texto do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    transition: background-color 0.3s; /* Efeito de transição na cor do botão */
+}
+
+.custom-btn:hover {
+    background-color: #f98273; /* Cor ao passar o mouse */
+}
+
+footer {
+    background-color: #f0f8ff; /* Tom pastel para o footer */
+    border-top: 1px solid #ddd; /* Linha de separação */
+}
+
+footer .social-links a {
+    color: #333; /* Cor do texto dos links sociais */
+    text-decoration: none; /* Remove o sublinhado */
+    margin-right: 15px; /* Espaçamento entre os links */
+}
+
+footer .social-links a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}

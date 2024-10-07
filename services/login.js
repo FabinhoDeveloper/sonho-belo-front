@@ -4,17 +4,6 @@
 const express = require("express")
 const router = express.Router()
 
-const usuarios = [
-    {
-        email: 'fabioezequiel555@gmail.com',
-        senha: 'fabio123'
-    },
-    {
-        email: 'rutu.narciso@gmail.com',
-        senha: 'arthur123'
-    }
-]
-
 router.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) {

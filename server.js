@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(session({
-    secret: 'process.env.SESSION_SECRET', // chave secreta para criptografia da sessão
+    secret: process.env.SESSION_SECRET, // chave secreta para criptografia da sessão
     resave: true,
     saveUninitialized: false,
     cookie: { secure: false } // Em produção, isso deve ser 'true' se usar HTTPS

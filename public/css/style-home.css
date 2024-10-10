@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html {
+    scroll-behavior: smooth; /* Adiciona rolagem suave */
+}
+
+body {
+    background-color: #f5f5f5; /* Fundo claro */
+    font-family: "Poppins", sans-serif; /* Fonte */
+    margin: 0;
+}
+
+header {
+    background: #F8BBD0; /* Rosa Bebê */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #3B2B25; /* Cor de texto escura */
+}
+
+.hero {
+    background-image: url('../../assets/AdobeStock_210067578_Preview.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.hero .btn-warning {
+    background-color: #FFF5BA; /* Amarelo Pastel */
+    border: none;
+}
+
+.hero .btn-warning:hover {
+    background-color: #F8BBD0; /* Rosa Bebê ao passar o mouse */
+}
+
+section {
+    height: 80vh;
+    padding: 20px;
+    text-align: center;
+}
+
+#sobre {
+    background-color: #B2E0D6; /* Verde Menta */
+}
+
+#produtos {
+    background-color: #FFF5BA; /* Amarelo Pastel */
+}
+
+#contato {
+    background-color: #F8BBD0; /* Rosa Bebê */
+}
+
+footer {
+    background: #E0E0E0; /* Cinza Claro */
+}
+
+footer a {
+    color: #3B2B25; /* Cor de texto escura */
+    text-decoration: none;
+}
+
+.btn-enviar {
+    background-color: #F7BAB2; /* Rosa claro */
+    color: white;
+}
+
+.btn-enviar:hover {
+    background-color: #f98273; /* Rosa mais escuro */
+    color: white;
+}

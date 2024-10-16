@@ -1,118 +1,262 @@
 <link rel="stylesheet" href="/css/style-home.css">
 
-<header>
-    <div class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand logo" href="#">Sonho Belo</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <nav class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
+<!-- Navbar com fundo vermelho e texto claro -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand">Sonho Belo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" aria-current="page" href="#sobre-nos">Sobre Nós</a>
+        <a class="nav-link" href="#sabores">Sabores</a>
+        <a class="nav-link" href="#redes">Redes</a>
+        <a class="nav-link" href="#encomenda">Faça Sua Encomenda</a>
+      </div>
     </div>
-</header>
+  </div>
+</nav>
+  
+<!-- Sections -->
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1 class="display-4">Bem-vindo à Sonho Belo!</h1>
+    <p class="lead">Experimente nossos brigadeiros artesanais, feitos com amor e ingredientes de alta qualidade.</p>
+    <a href="#encomenda" class="btn btn-lg">Faça sua encomenda</a>
+  </div>
+</section>
 
-<!-- Hero Section -->
-<section class="hero text-center">
-    <div class="container">
-        <h1>Os Melhores Brigadeiros Gourmet!</h1>
-        <p>Experimente sabores irresistíveis feitos com ingredientes de qualidade.</p>
-        <a href="#produtos" class="btn btn-warning">Explore Nossos Sabores</a>
+<section id="sobre-nos" class="sobre-nos container">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h2>Sobre Nós</h2>
+            <p>
+                Nossa loja é dedicada a oferecer produtos de alta qualidade, com um serviço de atendimento ao cliente excepcional. 
+                Com anos de experiência no mercado, garantimos a satisfação de nossos clientes em todas as etapas da compra.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="/assets/brigadeiro.jpeg" alt="Imagem da Loja">
+        </div>
     </div>
 </section>
 
-<!-- Seção Sobre -->
-<!-- Seção Sobre Nós -->
-<section id="sobre" class="container mt-5">
+<section id="sabores" class="sabores container">
+  <h2>Nossos Sabores</h2>
+  <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src="/assets/brigadeiro.jpeg" class="card-img-top" alt="Brigadeiro Tradicional">
+              <div class="card-body">
+                  <h5 class="card-title">Brigadeiro Tradicional</h5>
+                  <p class="card-text">O clássico brigadeiro de chocolate com granulado, irresistível e delicioso.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src="https://via.placeholder.com/300" class="card-img-top" alt="Brigadeiro de Morango">
+              <div class="card-body">
+                  <h5 class="card-title">Brigadeiro de Morango</h5>
+                  <p class="card-text">Brigadeiro com sabor de morango, suave e doce na medida certa.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src="https://via.placeholder.com/300" class="card-img-top" alt="Brigadeiro de Coco">
+              <div class="card-body">
+                  <h5 class="card-title">Brigadeiro de Coco</h5>
+                  <p class="card-text">Uma combinação perfeita de chocolate e coco para os amantes de sabores tropicais.</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="/todos-sabores" class="btn btn-sabores">Mais Sabores</a>
+      </div>
+  
+  </div>
+</section>
+
+<section id="redes" class="social-media text-center py-5">
+  <div class="container">
+    <h2>Siga-nos nas Redes Sociais</h2>
+    <div class="row justify-content-center">
+      <!-- Instagram -->
+      <div class="col-12 col-md-4 mb-4">
+        <a href="https://www.instagram.com" target="_blank" class="text-decoration-none text-dark">
+          <img src="/assets/instagram.png" alt="Instagram" class="img-fluid mb-2" style="width: 80px;">
+          <h5>Instagram</h5>
+        </a>
+      </div>
+
+      <!-- Facebook -->
+      <div class="col-12 col-md-4 mb-4">
+        <a href="https://www.facebook.com" target="_blank" class="text-decoration-none text-dark">
+          <img src="/assets/facebook.png" alt="Facebook" class="img-fluid mb-2" style="width: 80px;">
+          <h5>Facebook</h5>
+        </a>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="col-12 col-md-4 mb-4">
+        <a href="https://wa.me/5524981460323" target="_blank" class="text-decoration-none text-dark">
+          <img src="/assets/whatsapp.png" alt="WhatsApp" class="img-fluid mb-2" style="width: 80px;">
+          <h5>WhatsApp</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="encomenda" class="encomendas py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Faça sua Encomenda</h2>
+    <form action="/encomendas" method="POST" class="row g-3">
+
+      <!-- Nome do Cliente -->
+      <div class="col-md-12">
+        <label for="nome" class="form-label">Seu Nome</label>
+        <input type="text" id="nome" name="nome" class="form-control" required>
+      </div>
+
+      <!-- Seleção de Sabores -->
+      <div class="col-md-12">
+        <label for="sabores" class="form-label">Escolha os Sabores</label>
+        <select id="sabores" name="sabores[]" class="form-select" multiple required>
+          <option value="Brigadeiro Tradicional">Brigadeiro Tradicional</option>
+          <option value="Brigadeiro de Leite Ninho">Brigadeiro de Leite Ninho</option>
+          <option value="Brigadeiro de Morango">Brigadeiro de Morango</option>
+          <option value="Brigadeiro de Pistache">Brigadeiro de Pistache</option>
+          <option value="Brigadeiro Gourmet">Brigadeiro Gourmet</option>
+          <!-- Adicionar mais sabores conforme necessário -->
+        </select>
+        <small class="form-text text-muted">Segure a tecla "Ctrl" ou "Cmd" para selecionar múltiplos sabores.</small>
+      </div>
+
+      <!-- Campo para Data de Retirada -->
+      <div class="col-md-6">
+        <label for="data-retirada" class="form-label">Data de Retirada</label>
+        <input type="date" id="data-retirada" name="data-retirada" class="form-control" required>
+      </div>
+
+      <!-- Campo para Hora de Retirada -->
+      <div class="col-md-6">
+        <label for="hora-retirada" class="form-label">Hora de Retirada</label>
+        <input type="time" id="hora-retirada" name="hora-retirada" class="form-control" required>
+      </div>
+
+      <!-- Seleção de Quantidade -->
+      <div class="col-md-12">
+        <label for="quantidade" class="form-label">Selecione a Quantidade</label>
+        <select id="quantidade" name="quantidade" class="form-select" required>
+          <option value="caixa">Caixa (4 Brigadeiros)</option>
+          <option value="50">50 Brigadeiros</option>
+          <option value="100">100 Brigadeiros</option>
+        </select>
+      </div>
+
+      <!-- Opção de Entrega -->
+      <div class="col-md-12">
+        <label for="entrega" class="form-label">Deseja Entrega?</label>
+        <small class="form-text text-muted">Endereço para retirada: Rua Nicolau de Lucca, 144, Mirante das Agulhas, Resende - RJ.</small>
+        <select id="entrega" name="entrega" class="form-select" required onchange="toggleEndereco()">
+          <option value="nao">Não</option>
+          <option value="sim">Sim</option>
+        </select>
+      </div>
+
+      <!-- Campo para Endereço (Escondido por padrão) -->
+      <div class="col-md-12" id="enderecoDiv" style="display: none;">
+        <label for="endereco" class="form-label">Endereço para Entrega</label>
+        <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Informe o endereço completo">
+      </div>
+
+      <!-- Botão de Enviar -->
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary">Fazer Encomenda</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="bg-dark text-light py-4">
+  <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <h2>Sobre a Nossa Loja</h2>
-            <p>Na nossa loja, oferecemos os melhores doces e sobremesas artesanais, feitos com ingredientes selecionados e com muito carinho. Venha experimentar!</p>
-            <p>Nosso objetivo é proporcionar uma experiência doce e única para cada cliente, sempre buscando qualidade e sabor em cada produto.</p>
-        </div>
-        <div class="col-md-6">
-            <img src="URL_DA_IMAGEM" class="img-fluid" alt="Imagem da loja">
-        </div>
+      <!-- Seção de links do site -->
+      <div class="col-md-4">
+        <h5>Nosso Site</h5>
+        <ul class="list-unstyled">
+          <li><a href="/" class="text-light">Home</a></li>
+          <li><a href="/sobre" class="text-light">Sobre Nós</a></li>
+          <li><a href="/sabores" class="text-light">Sabores</a></li>
+          <li><a href="/encomendas" class="text-light">Encomendas</a></li>
+        </ul>
+      </div>
+
+      <!-- Seção de redes sociais -->
+      <div class="col-md-4 text-center">
+        <h5>Siga-nos</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/seu_perfil" class="text-light" target="_blank">
+              Instagram
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.facebook.com/seu_perfil" class="text-light" target="_blank">
+              Facebook
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://wa.me/5524981460323" class="text-light" target="_blank">
+              WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Seção de informações de contato -->
+      <div class="col-md-4">
+        <h5>Contato</h5>
+        <p>Telefone: (24) 98146-0323</p>
+        <p>Email: rutu.narciso@gmail.com</p>
+        <p>Endereço: Rua Exemplo, 123 - Bairro Centro, Cidade XYZ</p>
+      </div>
     </div>
-</section>
 
-
-<!-- Seção Produtos -->
-<!-- Seção Produtos -->
-<section id="produtos">
-    <h2>Nossos Produtos</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="URL_DA_IMAGEM_1" class="card-img-top" alt="Brigadeiro de Chocolate">
-                    <div class="card-body">
-                        <h5 class="card-title">Brigadeiro de Chocolate</h5>
-                        <p class="card-text">Delicioso brigadeiro feito com chocolate belga.</p>
-                        <span>R$ 2,50</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="URL_DA_IMAGEM_2" class="card-img-top" alt="Brigadeiro de Limão">
-                    <div class="card-body">
-                        <h5 class="card-title">Brigadeiro de Limão</h5>
-                        <p class="card-text">Uma combinação perfeita de doce e azedo.</p>
-                        <span>R$ 2,50</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="URL_DA_IMAGEM_3" class="card-img-top" alt="Brigadeiro de Morango">
-                    <div class="card-body">
-                        <h5 class="card-title">Brigadeiro de Morango</h5>
-                        <p class="card-text">Brigadeiro com pedaços de morango fresco.</p>
-                        <span>R$ 2,50</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Adicione mais cards conforme necessário -->
-        </div>
+    <!-- Linha de copyright -->
+    <div class="row mt-4">
+      <div class="col text-center">
+        <p class="mb-0">&copy; 2024 Sonho Belo. Todos os direitos reservados.</p>
+      </div>
     </div>
-</section>
-
-
-<!-- Seção de Contato -->
-<section id="contato" class="py-5">
-    <div class="container text-center">
-        <h2>Entre em Contato</h2>
-        <form action="enviar.php" method="post">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" class="form-control" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
-</section>
-
-<!-- Rodapé -->
-<footer class="text-center py-3 bg-light">
-    <p>&copy; 2024 Brigadeiros Gourmet. Todos os direitos reservados.</p>
-    <p><a href="https://www.instagram.com/loja_brigadeiros" target="_blank">Siga-nos no Instagram!</a></p>
+  </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function toggleEndereco() {
+    var entrega = document.getElementById("entrega").value;
+    var enderecoDiv = document.getElementById("enderecoDiv");
+
+    if (entrega === "sim") {
+      enderecoDiv.style.display = "block";
+      document.getElementById("endereco").setAttribute("required", "required");
+    } else {
+      enderecoDiv.style.display = "none";
+      document.getElementById("endereco").removeAttribute("required");
+    }
+  }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');/* Estilo da Navbar */
+.navbar {
+    display: flex;
+    background-color: #ff7171; /* Cor de fundo */
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    color: white;
+}
+
+.navbar a:hover {
+    color: white
+}
+
+.sabores {
+    margin-top: 5%;
+    padding: 50px 0;
+    background-color: #ff7171;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sabores h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.btn-sabores {
+    background-color: white;
+}
+
+.btn-sabores:hover {
+    background-color: wheat;
+}
+

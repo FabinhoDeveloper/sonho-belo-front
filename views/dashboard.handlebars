@@ -1,171 +1,85 @@
-
-    <title>Dashboard - Doceria Gourmet</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        .navbar {
-            margin-bottom: 20px;
-        }
-
-        .tab-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group img {
-            max-width: 100px;
-            margin-top: 10px;
-        }
-
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            padding: 10px;
-            background-color: #343a40;
-            color: white;
-        }
-    </style>
+<title>Dashboard - Loja de Brigadeiros</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Doceria Gourmet Dashboard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container-fluid">
+    <a class="navbar-brand" href="#">Loja de Brigadeiros</a>
+</div>
+</nav>
 
-    <!-- Container -->
-    <div class="container">
-        <!-- Tabs -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders"
-                    type="button" role="tab" aria-controls="orders" aria-selected="true">Encomendas</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button"
-                    role="tab" aria-controls="products" aria-selected="false">Produtos</button>
-            </li>
-        </ul>
+<div class="container mt-4">
+<h1 class="mb-4">Dashboard - Loja de Brigadeiros</h1>
 
-        <div class="tab-content" id="myTabContent">
-            <!-- Encomendas -->
-            <div class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                <h2 class="my-4">Encomendas Realizadas</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Cliente</th>
-                            <th>Produto</th>
-                            <th>Quantidade</th>
-                            <th>Data</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Maria Souza</td>
-                            <td>Bolo de Chocolate</td>
-                            <td>2</td>
-                            <td>10/10/2024</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>João Lima</td>
-                            <td>Torta de Morango</td>
-                            <td>1</td>
-                            <td>12/10/2024</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<!-- Abas de Navegação -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="encomendas-tab" data-bs-toggle="tab" data-bs-target="#encomendas" type="button" role="tab" aria-controls="encomendas" aria-selected="true">Encomendas</button>
+    </li>
+    <li class="nav-item" role="presentation">
+    <button class="nav-link" id="produtos-tab" data-bs-toggle="tab" data-bs-target="#produtos" type="button" role="tab" aria-controls="produtos" aria-selected="false">Produtos</button>
+    </li>
+</ul>
 
-            <!-- Produtos -->
-            <div class="tab-pane fade" id="products" role="tabpanel" aria-labelledby="products-tab">
-                <h2 class="my-4">Produtos Cadastrados</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Imagem</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Bolo de Chocolate</td>
-                            <td>Bolo delicioso com cobertura de chocolate belga.</td>
-                            <td><img src="https://via.placeholder.com/100" alt="Bolo de Chocolate"></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Torta de Morango</td>
-                            <td>Torta fresca com morangos orgânicos.</td>
-                            <td><img src="https://via.placeholder.com/100" alt="Torta de Morango"></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- Formulário para adicionar produto -->
-                <h3 class="my-4">Cadastrar Novo Produto</h3>
-                <form>
-                    <div class="mb-3">
-                        <label for="productName" class="form-label">Nome do Produto</label>
-                        <input type="text" class="form-control" id="productName" placeholder="Digite o nome do produto">
-                    </div>
-                    <div class="mb-3">
-                        <label for="productDescription" class="form-label">Descrição</label>
-                        <textarea class="form-control" id="productDescription" rows="3"
-                            placeholder="Digite a descrição do produto"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="productImage" class="form-label">Imagem do Produto</label>
-                        <input class="form-control" type="file" id="productImage">
-                        <img id="previewImage" src="" alt="" class="img-fluid mt-3" style="display:none;">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
-                </form>
-            </div>
-        </div>
+<div class="tab-content" id="myTabContent">
+    <!-- Aba Encomendas -->
+    <div class="tab-pane fade show active mt-3" id="encomendas" role="tabpanel" aria-labelledby="encomendas-tab">
+    <h2>Encomendas Cadastradas</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome do Cliente</th>
+            <th>Data da Encomenda</th>
+            <th>Quantidade</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Preview da imagem no formulário de cadastro
-        const productImage = document.getElementById('productImage');
-        const previewImage = document.getElementById('previewImage');
 
-        productImage.addEventListener('change', function () {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    previewImage.style.display = 'block';
-                    previewImage.src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
+    <!-- Aba Produtos -->
+    <div class="tab-pane fade mt-3" id="produtos" role="tabpanel" aria-labelledby="produtos-tab">
+    <h2>Produtos Cadastrados</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Brigadeiro Tradicional</td>
+            <td>R$ 2,50</td>
+            <td>200 unidades</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Brigadeiro de Ninho</td>
+            <td>R$ 3,00</td>
+            <td>150 unidades</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Brigadeiro de Paçoca</td>
+            <td>R$ 3,50</td>
+            <td>100 unidades</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+

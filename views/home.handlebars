@@ -32,7 +32,7 @@
     <div class="row align-items-center">
         <div class="col-md-6">
             <h2>Sobre Nós</h2>
-            <p>
+            <p style="text-align: justify;">
                 Nossa loja é dedicada a oferecer produtos de alta qualidade, com um serviço de atendimento ao cliente excepcional. 
                 Com anos de experiência no mercado, garantimos a satisfação de nossos clientes em todas as etapas da compra.
             </p>
@@ -47,40 +47,20 @@
   <h2>Nossos Sabores</h2>
   <div class="row">
       <!-- Card 1 -->
-      <div class="col-md-4 mb-4">
-          <div class="card">
-              <img src="/assets/brigadeiro.jpeg" class="card-img-top" alt="Brigadeiro Tradicional">
-              <div class="card-body">
-                  <h5 class="card-title">Brigadeiro Tradicional</h5>
-                  <p class="card-text">O clássico brigadeiro de chocolate com granulado, irresistível e delicioso.</p>
-              </div>
-          </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="col-md-4 mb-4">
-          <div class="card">
-              <img src="https://via.placeholder.com/300" class="card-img-top" alt="Brigadeiro de Morango">
-              <div class="card-body">
-                  <h5 class="card-title">Brigadeiro de Morango</h5>
-                  <p class="card-text">Brigadeiro com sabor de morango, suave e doce na medida certa.</p>
-              </div>
-          </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col-md-4 mb-4">
-          <div class="card">
-              <img src="https://via.placeholder.com/300" class="card-img-top" alt="Brigadeiro de Coco">
-              <div class="card-body">
-                  <h5 class="card-title">Brigadeiro de Coco</h5>
-                  <p class="card-text">Uma combinação perfeita de chocolate e coco para os amantes de sabores tropicais.</p>
-              </div>
-          </div>
-      </div>
+      {{#each produto}}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/assets/brigadeiro.jpeg" class="card-img-top" alt="Brigadeiro Tradicional">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.nome}}</h5>
+                    <p class="card-text">{{this.descricao}}.</p>
+                </div>
+            </div>
+        </div>
+      {{/each}}
 
       <div class="text-center mt-4">
-        <a href="/todos-sabores" class="btn btn-sabores">Mais Sabores</a>
+        <a href="/sabores" class="btn btn-sabores">Mais Sabores</a>
       </div>
   
   </div>
@@ -131,7 +111,7 @@
       <!-- Seleção de Sabores -->
       <div class="col-md-12">
         <label for="sabores" class="form-label">Escolha os Sabores</label>
-        <select id="sabores" name="sabores[]" class="form-select" multiple required>
+        <select id="sabores" name="sabores" class="form-select" multiple required>
           <option value="Brigadeiro Tradicional">Brigadeiro Tradicional</option>
           <option value="Brigadeiro de Leite Ninho">Brigadeiro de Leite Ninho</option>
           <option value="Brigadeiro de Morango">Brigadeiro de Morango</option>
@@ -144,13 +124,13 @@
 
       <!-- Campo para Data de Retirada -->
       <div class="col-md-6">
-        <label for="data-retirada" class="form-label">Data de Retirada</label>
+        <label for="dataRetirada" class="form-label">Data de Retirada</label>
         <input type="date" id="data-retirada" name="data-retirada" class="form-control" required>
       </div>
 
       <!-- Campo para Hora de Retirada -->
       <div class="col-md-6">
-        <label for="hora-retirada" class="form-label">Hora de Retirada</label>
+        <label for="horaRetirada" class="form-label">Hora de Retirada</label>
         <input type="time" id="hora-retirada" name="hora-retirada" class="form-control" required>
       </div>
 
@@ -169,8 +149,8 @@
         <label for="entrega" class="form-label">Deseja Entrega?</label>
         <small class="form-text text-muted">Endereço para retirada: Rua Nicolau de Lucca, 144, Mirante das Agulhas, Resende - RJ.</small>
         <select id="entrega" name="entrega" class="form-select" required onchange="toggleEndereco()">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
+          <option value="false">Não</option>
+          <option value="true">Sim</option>
         </select>
       </div>
 
@@ -229,7 +209,7 @@
         <h5>Contato</h5>
         <p>Telefone: (24) 98146-0323</p>
         <p>Email: rutu.narciso@gmail.com</p>
-        <p>Endereço: Rua Exemplo, 123 - Bairro Centro, Cidade XYZ</p>
+        <p>Endereço: Rua Nicolau de Lucca, 144 - Mirante das Agulhas, Resende - RJ</p>
       </div>
     </div>
 

@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');/* Estilo da Navbar */
+
+/* Animação nas Sections */
+/* Inicialmente as seções estão invisíveis */
+.invisible {
+    opacity: 0;
+    transform: translateY(50px); /* Translada para baixo 50px */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Suavidade */
+}
+
+/* Quando a seção estiver visível */
+.visible {
+    opacity: 1;
+    transform: translateY(0); /* Reseta a posição */
+}
+
+/* Navbar */
+
 .navbar {
     display: flex;
     background-color: #ff7171; /* Cor de fundo */
@@ -123,6 +140,18 @@
     margin-bottom: 40px;
     color: white;
 }
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Aumenta o tamanho do card em 5% quando o mouse passa por cima */
+    cursor: pointer;
+}
+
+
 .card img {
     height: 200px;
     object-fit: cover;

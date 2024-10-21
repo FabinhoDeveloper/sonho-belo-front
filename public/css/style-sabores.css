@@ -19,6 +19,26 @@
     color: white
 }
 
+.container {
+    margin-top: 50px; /* Espaçamento superior para evitar sobreposição */
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.container h2  {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.container p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
 .sabores {
     margin-top: 5%;
     margin-bottom: 5%;

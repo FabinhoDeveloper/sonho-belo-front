@@ -72,7 +72,7 @@
     <div class="row justify-content-center">
       <!-- Instagram -->
       <div class="col-12 col-md-4 mb-4">
-        <a href="https://www.instagram.com" target="_blank" class="text-decoration-none text-dark">
+        <a href="https://www.instagram.com/sonhobelo_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-decoration-none text-dark">
           <img src="/assets/instagram.png" alt="Instagram" class="img-fluid mb-2" style="width: 80px;">
           <h5>Instagram</h5>
         </a>
@@ -110,17 +110,18 @@
 
       <!-- Seleção de Sabores -->
       <div class="col-md-12">
-        <label for="sabores" class="form-label">Escolha os Sabores</label>
-        <select id="sabores" name="sabores" class="form-select" multiple required>
-          <option value="Brigadeiro Tradicional">Brigadeiro Tradicional</option>
-          <option value="Brigadeiro de Leite Ninho">Brigadeiro de Leite Ninho</option>
-          <option value="Brigadeiro de Morango">Brigadeiro de Morango</option>
-          <option value="Brigadeiro de Pistache">Brigadeiro de Pistache</option>
-          <option value="Brigadeiro Gourmet">Brigadeiro Gourmet</option>
-          <!-- Adicionar mais sabores conforme necessário -->
-        </select>
-        <small class="form-text text-muted">Segure a tecla "Ctrl" ou "Cmd" para selecionar múltiplos sabores.</small>
-      </div>
+        <label for="sabores" class="form-label">Escolha os Sabores - Até 4 Sabores</label>
+        <div id="sabores-form" class="form-check">
+            {{#each produto}}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sabores" id="sabor-{{this.nome}}" value="{{this.nome}}" onclick="checkMaxSelections(this)">
+                <label class="form-check-label" for="sabor-{{this.nome}}">
+                    {{this.nome}}
+                </label>
+            </div>
+            {{/each}}
+        </div>
+    </div>
 
       <!-- Campo para Data de Retirada -->
       <div class="col-md-6">
@@ -136,12 +137,18 @@
 
       <!-- Seleção de Quantidade -->
       <div class="col-md-12">
-        <label for="quantidade" class="form-label">Selecione a Quantidade</label>
-        <select id="quantidade" name="quantidade" class="form-select" required>
-          <option value="caixa">Caixa (4 Brigadeiros)</option>
-          <option value="50">50 Brigadeiros</option>
-          <option value="100">100 Brigadeiros</option>
+        <label for="quantidade" class="form-label">Selecione o Tipo de Encomenda</label>
+        <select id="quantidade" name="tipo" class="form-select" required>
+          <option value="caixa">Caixa (4 Brigadeiros) - R$ 10,00 </option>
+          <option value="50">50 Brigadeiros - R$ 75,00</option>
+          <option value="100">Cento (100 Brigadeiros) - R$ 125,00</option>
         </select>
+      </div>
+
+      <!-- Seleção de Quantidade -->
+      <div class="col-md-12">
+        <label for="quantidade" class="form-label">Selecione a Quantidade</label>
+        <input type="number" class="form-control" name="quantidade" id="quantidade" value="1">
       </div>
 
       <!-- Opção de Entrega -->
@@ -222,8 +229,5 @@
   </div>
 </footer>
 
-
-
 <script src="/js/script-home.js"></script>
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

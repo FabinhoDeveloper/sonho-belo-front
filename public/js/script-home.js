@@ -11,4 +11,10 @@ function toggleEndereco() {
     }
 }
 
-
+function checkMaxSelections(checkbox) {
+  const checkboxes = document.querySelectorAll('input[name="sabores"]:checked');
+  if (checkboxes.length > 4) {
+      checkbox.checked = false;
+      alert('Você pode selecionar no máximo 4 sabores.');
+  }
+}

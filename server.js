@@ -14,7 +14,7 @@ const cors = require("cors")
 
 const mainRoutes = require("./routes/main-routes")
 const adminRoutes = require("./routes/admin-routes")
-const autenticacaoRoutes = require("./services/login")
+const autenticacaoRoutes = require("./auth/login")
 
 // Chamada inicial do express
 

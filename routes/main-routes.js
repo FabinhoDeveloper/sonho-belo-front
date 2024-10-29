@@ -15,10 +15,5 @@ router.get("/sabores", (req, res) => {
     })
 })
 
-router.post("/encomendas", (req, res) => {
-    const {nome, sabores, dataRetirada, horaRetirada, tipo, quantidade, entrega, endereco} = req.body
-
-    res.json({nome, sabores, dataRetirada, horaRetirada, tipo, quantidade, entrega, endereco})
-})
 
 module.exports = router

@@ -8,9 +8,16 @@ router.get("/", (req, res) => {
     })
 })
 
-router.get("/dashboard", auth_middlewares.verificaLoginAdministrador, (req, res) => {
+router.get("/dashboard", (req, res) => {
     res.render("dashboard", {
         title: "Sonho Belo - Dashboard",
+        usuario: req.session.usuario
+    })
+})
+
+router.get("/cadastro-sabor", (req, res) => {
+    res.render("dashboard-cadastro-sabor", {
+        title: "Sonho Belo - Cadastro de Sabor",
         usuario: req.session.usuario
     })
 })

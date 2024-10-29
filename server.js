@@ -14,7 +14,8 @@ const cors = require("cors")
 
 const mainRoutes = require("./routes/main-routes")
 const adminRoutes = require("./routes/admin-routes")
-const autenticacaoRoutes = require("./auth/login")
+const autenticacaoRoutes = require("./services/login")
+const proxyApi = require("./services/proxy_api")
 
 // Chamada inicial do express
 
@@ -48,6 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", mainRoutes)
 app.use("/admin", adminRoutes)
 app.use("/login", autenticacaoRoutes)
+app.use("/api", proxyApi)
 
 // Instanciamento do servidor
 

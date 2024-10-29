@@ -1,6 +1,5 @@
 // Módulo que fará o login e gestão de sessoes com o Back-End
 
-// Array teste simulando os usuarios
 const express = require("express")
 const router = express.Router()
 const api = require("../config/axiosConfig")

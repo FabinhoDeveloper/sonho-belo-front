@@ -33,8 +33,7 @@
         <div class="col-md-6">
             <h2>Sobre Nós</h2>
             <p style="text-align: justify;">
-                Nossa loja é dedicada a oferecer produtos de alta qualidade, com um serviço de atendimento ao cliente excepcional. 
-                Com anos de experiência no mercado, garantimos a satisfação de nossos clientes em todas as etapas da compra.
+                A Sonho Belo é uma loja dedicada a transformar o brigadeiro em uma verdadeira experiência gourmet. Criamos brigadeiros artesanais que unem sabor, qualidade e criatividade em cada detalhe, usando ingredientes selecionados e receitas exclusivas. Nossa missão é adoçar momentos especiais, tornando cada brigadeiro uma explosão de sabor para você e seus convidados. Venha conhecer nossas delícias e permita-se experimentar o brigadeiro como nunca antes!
             </p>
         </div>
         <div class="col-md-6">
@@ -47,17 +46,21 @@
   <h2>Nossos Sabores</h2>
   <div class="row">
       <!-- Card 1 -->
-      {{#each sabores}}
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/assets/brigadeiro.jpeg" class="card-img-top" alt="Brigadeiro Tradicional">
-                <div class="card-body">
-                    <h5 class="card-title">{{this.nome}}</h5>
-                    <p class="card-text">{{this.descricao}}.</p>
-                </div>
-            </div>
-        </div>
-      {{/each}}
+      {{#if sabores_section}}
+        {{#each sabores_section}}
+          <div class="col-md-4 mb-4">
+              <div class="card">
+                  <img src="{{this.imagemUrl}}" class="card-img-top" alt="Brigadeiro Tradicional">
+                  <div class="card-body">
+                      <h5 class="card-title">{{this.nome}}</h5>
+                      <p class="card-text">{{this.descricao}}.</p>
+                  </div>
+              </div>
+          </div>
+        {{/each}}
+      {{else}}
+        <p>Nenhum sabor cadastrado ainda!</p>
+      {{/if}}
 
       <div class="text-center mt-4">
         <a href="/sabores" class="btn btn-sabores">Mais Sabores</a>
@@ -100,21 +103,21 @@
 <section id="encomenda" class="encomendas py-5">
   <div class="container">
     <h2 class="text-center mb-5">Faça sua Encomenda</h2>
-    <form action="/encomendas" method="POST" class="row g-3">
+    <form action="/api/cadastro-encomenda" method="POST" class="row g-3">
 
       <!-- Nome do Cliente -->
       <div class="col-md-12">
-        <label for="nome" class="form-label">Seu Nome</label>
-        <input type="text" id="nome" name="nome" class="form-control" required>
+        <label for="nome_cliente" class="form-label">Seu Nome</label>
+        <input type="text" id="nome_cliente" name="nome_cliente" class="form-control" required>
       </div>
 
       <!-- Seleção de Sabores -->
       <div class="col-md-12">
         <label for="sabores" class="form-label">Escolha os Sabores - Até 4 Sabores</label>
         <div id="sabores-form" class="form-check">
-            {{#each produto}}
+            {{#each opcoes_formulario}}
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sabores" id="sabor-{{this.nome}}" value="{{this.nome}}" onclick="checkMaxSelections(this)">
+                <input class="form-check-input" type="checkbox" name="sabores" id="sabor-{{this.nome}}" value="{{this.id}}" onclick="checkMaxSelections(this)">
                 <label class="form-check-label" for="sabor-{{this.nome}}">
                     {{this.nome}}
                 </label>
@@ -126,19 +129,19 @@
       <!-- Campo para Data de Retirada -->
       <div class="col-md-6">
         <label for="dataRetirada" class="form-label">Data de Retirada</label>
-        <input type="date" id="data-retirada" name="data-retirada" class="form-control" required>
+        <input type="date" id="data-retirada" name="dataRetirada" class="form-control" required>
       </div>
 
       <!-- Campo para Hora de Retirada -->
       <div class="col-md-6">
         <label for="horaRetirada" class="form-label">Hora de Retirada</label>
-        <input type="time" id="hora-retirada" name="hora-retirada" class="form-control" required>
+        <input type="time" id="hora-retirada" name="horaRetirada" class="form-control" required>
       </div>
 
       <!-- Seleção de Quantidade -->
       <div class="col-md-12">
-        <label for="quantidade" class="form-label">Selecione o Tipo de Encomenda</label>
-        <select id="quantidade" name="tipo" class="form-select" required>
+        <label for="tipo" class="form-label">Selecione o Tipo de Encomenda</label>
+        <select id="tipo" name="tipo" class="form-select" required>
           <option value="caixa">Caixa (4 Brigadeiros) - R$ 10,00 </option>
           <option value="50">50 Brigadeiros - R$ 75,00</option>
           <option value="100">Cento (100 Brigadeiros) - R$ 125,00</option>

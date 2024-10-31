@@ -22,6 +22,10 @@
         </div>
         <button type="submit" class="btn-enviar btn w-100">Entrar</button>
     </form>
+    {{#if primeiroLogin}}
+        <a href="/admin/primeiro-cadastro">Realize aqui o primeiro login de usuário</a>
+    {{/if}}
+    
 </div>
 
 <!-- Bootstrap JS -->
@@ -39,7 +43,7 @@
             const response_json = response.data
 
             if (response_json.autorizado) {
-                window.location.href = '/admin/dashboard';
+                window.location.href = '/admin/sabores';
             } else {
                 alert("Credenciais incorretas.");
             }

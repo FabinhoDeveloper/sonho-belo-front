@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/style-sabores.css">
+<link rel="stylesheet" href="/css/style-home.css">
 
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
@@ -21,16 +21,20 @@
   <h2>Todos os Sabores</h2>
   <div class="row">
       <!-- Card 1 -->
-      {{#each produto}}
+      {{#each sabores}}
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="/assets/brigadeiro.jpeg" class="card-img-top" alt="Brigadeiro Tradicional">
+                <img src="{{this.imagemUrl}}" class="card-img-top" alt="Brigadeiro de paçoca">
                 <div class="card-body">
                     <h5 class="card-title">{{this.nome}}</h5>
-                    <p class="card-text">{{this.descricao}}.</p>
+                    <p class="card-text">{{this.descricao}}</p>
                 </div>
             </div>
         </div>
       {{/each}}
   </div>
 </section>
+
+<script>
+    console.log(`{{sabores}}`)
+</script>

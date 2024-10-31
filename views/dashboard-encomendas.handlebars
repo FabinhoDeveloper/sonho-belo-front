@@ -1,0 +1,64 @@
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/style-dashboard.css">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand">Olá, {{usuario.nome}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/admin/sabores">Sabores</a>
+        <a class="nav-link" href="/admin/encomendas">Encomendas</a>
+        <a class="nav-link" href="/admin/usuarios">Administradores</a>
+        <a class="nav-link" href="/login/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+    <h2 class="text-center">Gerenciamento de Encomendas</h2>
+
+    <!-- Lista de Encomendas -->
+    <div class="card">
+        <div class="card-header">Encomendas Cadastradas</div>
+        <ul class="list-group list-group-flush" id="encomenda-lista">
+            <!-- Exemplo de Item de Encomenda, deve ser substituído pelos dados do backend -->
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Nome: <small>Maria Oliveira</small></h5>
+                        <p>Sabores: <small>Chocolate, Morango, Limão, Nutella</small></p>
+                        <p>Tipo: <small>Caixa</small></p>
+                        <p>Quantidade: <small>20</small></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Data de Retirada: <small>10/11/2024</small></p>
+                        <p>Hora de Retirada: <small>14:00</small></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Para Entrega: <small>Sim</small></p>
+                        <p>Endereço: <small>Rua das Flores, 123, Centro</small></p>
+                    </div>
+                    <div class="col-md-3 text-end">
+                        <button class="btn btn-danger btn-sm" onclick="deleteEncomenda(id)">Concluir</button>
+                    </div>
+                </div>
+            </li>
+            <!-- Repita para cada encomenda -->
+        </ul>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Função para excluir encomenda
+    function deleteEncomenda(id) {
+        // Código para deletar a encomenda do sistema (substituir com a lógica do backend)
+        alert(`Encomenda com ID ${id} excluída.`);
+    }
+</script>

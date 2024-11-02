@@ -66,7 +66,7 @@
 
         try {
             // Envio dos dados para o backend
-            const response = await axios.post('/api/cadastro-usuario', { nome, email, senha });
+            const response = await axios.post('/api/usuario/cadastrar', { nome, email, senha });
 
             // Processamento da resposta
             if (response.data.sucesso) {

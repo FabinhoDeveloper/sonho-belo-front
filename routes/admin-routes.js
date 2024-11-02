@@ -38,13 +38,19 @@ router.get("/editar-sabor")
 // Paginas relacionadas a encomenda
 
 router.get("/encomendas", async (req, res) => {
-    const response = await api.get("/sabor/obter")
-    const sabores = response.data.sabores
+    const response = await api.get("/encomenda/obter")
+    const encomendas = response.data
+
+    console.log(encomendas)
+
+    encomendas.forEach(encomenda => {
+        console.log(encomenda.sabores.nome)
+    });
 
     res.render("dashboard-encomendas", {
         title: "Sonho Belo - Encomendas",
         usuario: req.session.usuario,
-        sabores
+        encomendas,
     })
 })
 

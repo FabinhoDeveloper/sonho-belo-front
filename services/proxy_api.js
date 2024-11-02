@@ -60,6 +60,28 @@ router.post("/primeiro-cadastro", async (req, res) => {
     })
 })
 
+// Cadastro de outro usuarios
+
+router.post("/usuario/cadastrar", async (req, res) => {
+    const {nome, email, senha} = req.body
+
+    const response = await api.post("/usuario/cadastrar", {nome, email, senha})
+    const cadastro = response.data
+
+    if (!cadastro) {
+        return res.json({
+            sucesso: false,
+            mensagem: 'Não foi possível realizar o cadastro do usuário!'
+        })
+    }
+
+    req.session.usuario = cadastro.usuarioCriado
+    res.json({
+        sucesso: true,
+        mensagem: `Usuário cadastrado com sucesso`
+    })
+})
+
 // Cadastro encomenda
 
 router.post("/cadastro-encomenda", async (req, res) => {    

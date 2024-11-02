@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/style-home.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <!-- Navbar com fundo vermelho e texto claro -->
 <nav class="navbar navbar-expand-lg">
@@ -103,8 +104,7 @@
 <section id="encomenda" class="encomendas py-5">
   <div class="container">
     <h2 class="text-center mb-5">Faça sua Encomenda</h2>
-    <form action="/api/cadastro-encomenda" method="POST" class="row g-3">
-
+    <form id="formEncomenda" class="row g-3">
       <!-- Nome do Cliente -->
       <div class="col-md-12">
         <label for="nome_cliente" class="form-label">Seu Nome</label>
@@ -142,9 +142,9 @@
       <div class="col-md-12">
         <label for="tipo" class="form-label">Selecione o Tipo de Encomenda</label>
         <select id="tipo" name="tipo" class="form-select" required>
-          <option value="caixa">Caixa (4 Brigadeiros) - R$ 10,00 </option>
-          <option value="50">50 Brigadeiros - R$ 75,00</option>
-          <option value="100">Cento (100 Brigadeiros) - R$ 125,00</option>
+          <option value="Caixa com 10">Caixa (4 Brigadeiros) - R$ 10,00 </option>
+          <option value="Caixa com 50">50 Brigadeiros - R$ 75,00</option>
+          <option value="Cento">Cento (100 Brigadeiros) - R$ 125,00</option>
         </select>
       </div>
 
@@ -235,3 +235,33 @@
 <script src="/js/script-home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+    document.querySelector('#formEncomenda').addEventListener('submit', async function (event) {
+        event.preventDefault()
+
+        const nome_cliente = document.getElementById('nome_cliente').value;
+        const sabores = Array.from(document.querySelectorAll('input[name="sabores"]:checked')).map(checkbox => checkbox.value);        const dataRetirada = document.getElementById('data-retirada').value;
+        const horaRetirada = document.getElementById('hora-retirada').value;
+        const tipo = document.getElementById('tipo').value;
+        const quantidade = document.getElementById('quantidade').value;
+        const entrega = document.getElementById('entrega').value;
+        const endereco = document.getElementById('endereco').value;
+
+        const mensagem = `Olá! Sou ${nome_cliente}, e estou enviando esta mensagem para confirmar minha encomenda de ${quantidade} ${tipo}(s) foi registrada para retirada em ${dataRetirada} às ${horaRetirada}.`;
+        const url = `https://wa.me/5524981460323?text=${encodeURIComponent(mensagem)}`;
+
+        try {
+            const response = await axios.post('/api/cadastro-encomenda', { nome_cliente, sabores, dataRetirada, horaRetirada, tipo, quantidade, entrega, endereco });
+
+            if (response.data.sucesso) {
+                alert(`${response.data.mensagem}. Conclua enviando no Whatsapp.`);
+                window.open(url, '_blank');
+            } else {
+                alert(response.data.mensagem);
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Erro ao cadastrar usuário.");
+        }
+    });
+</script>

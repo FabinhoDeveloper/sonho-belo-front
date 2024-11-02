@@ -9,6 +9,7 @@ const exphbs = require("express-handlebars")
 const bodyParser = require("body-parser")
 const session = require("express-session")
 const cors = require("cors")
+const handlebarsHelpers = require("./helpers/handlebarsHelpers")
 
 // Importação das rotas
 
@@ -23,7 +24,13 @@ const app = express()
 
 // Configuração do Handlebars
 
-app.engine('handlebars', exphbs.engine());
+app.engine(
+    'handlebars',
+    exphbs.engine({
+      helpers: handlebarsHelpers, // Passa os helpers para o Handlebars
+      defaultLayout: 'main', // Layout padrão (opcional)
+    })
+);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 

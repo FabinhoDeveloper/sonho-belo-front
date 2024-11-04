@@ -3,15 +3,7 @@ const router = express.Router()
 const auth_middlewares = require("../middlewares/auth-middlewares")
 const api = require("../config/axiosConfig")
 
-router.get("/", async (req, res) => {
-    const numeroUsuarios = await api.get("/usuario/obter-numero")
-    const primeiroLogin = Boolean(!numeroUsuarios.data.lista_usuarios)
 
-    res.render("login", {
-        title: "Sonho Belo - Login",
-        primeiroLogin
-    })
-})
 
 // Paginas relacionadas a sabor
 
@@ -33,7 +25,18 @@ router.get("/cadastro-sabor", (req, res) => {
     })
 })
 
-router.get("/editar-sabor")
+router.get("/editar-sabor/:id", async (req, res) => {
+    const {id} = req.params
+
+    const response = await api.get(`/sabor/obter/${id}`)
+    const sabor = response.data.sabor
+
+    res.render("dashboard-editar-sabor", {
+        title: "Dashboard - Editar Sabor",
+        usuario: req.session.usuario,
+        sabor
+    })
+})
 
 // Paginas relacionadas a encomenda
 
@@ -41,16 +44,12 @@ router.get("/encomendas", async (req, res) => {
     const response = await api.get("/encomenda/obter")
     const encomendas = response.data
 
-    console.log(encomendas)
-
-    encomendas.forEach(encomenda => {
-        console.log(encomenda.sabores.nome)
-    });
+    const encomendasNaoConcluidas = encomendas.filter(encomenda => encomenda.concluida === false)
 
     res.render("dashboard-encomendas", {
-        title: "Sonho Belo - Encomendas",
+        title: "Dashboard - Encomendas",
         usuario: req.session.usuario,
-        encomendas,
+        encomendas: encomendasNaoConcluidas,
     })
 })
 
@@ -65,14 +64,17 @@ router.get("/usuarios", async (req, res) => {
     const usuarios = response.data.lista_usuarios
 
     res.render("dashboard-usuarios", {
+        title: 'Dashboard - Usuários',
+        usuario: req.session.usuario,
         usuarios
-    })
+    })  
 })
 
 router.get("/cadastro-usuario", (req, res) => {
-    res.render("dashboard-cadastro-usuario")
+    res.render("dashboard-cadastro-usuario", {
+        title: 'Dashboard - Cadastrar Usuário',
+        usuario: req.session.usuario
+    })
 })
-
-router.get("/editar-usuario")
 
 module.exports = router

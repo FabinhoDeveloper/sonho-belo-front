@@ -11,8 +11,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/admin/sabores">Sabores</a>
         <a class="nav-link" href="/admin/encomendas">Encomendas</a>
+        <a class="nav-link" href="/admin/sabores">Sabores</a>
         <a class="nav-link" href="/admin/usuarios">Administradores</a>
         <a class="nav-link" href="/login/logout">Logout</a>
       </div>
@@ -21,56 +21,62 @@
 </nav>
 
 <div class="container my-5">
-    <h2 class="text-center">Gerenciamento de Encomendas</h2>
-
-    <!-- Lista de Encomendas -->
-    <div class="card">
-        <div class="card-header">Encomendas Cadastradas</div>
-        <ul class="list-group list-group-flush" id="encomenda-lista">
-            <!-- Exemplo de Item de Encomenda, deve ser substituído pelos dados do backend -->
-            {{#each encomendas}}
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h5>Nome: <small>{{this.nome_cliente}}</small></h5>
-                        <p>Sabores:</p>
-                            {{#each this.sabores}}
-                            <small>{{this.nome}}</small>                            
-                            {{/each}}
-                        <p>Tipo: <small>{{this.tipo}}</small></p>
-                        <p>Quantidade: <small>{{this.quantidade}}</small></p>
-                    </div>
-                    <div class="col-md-3">
-                        <p>Data de Retirada: <small>{{formatDate this.data_retirada}}</small></p>
-                        <p>Hora de Retirada: <small>{{this.hora_retirada}}</small></p>
-                    </div>
-                    <div class="col-md-3">
-                        <p>Para Entrega: 
-                            {{#isEqual this.para_entrega 'true'}}
-                                <small>Sim</small>
-                            {{else}}
-                                <small>Não</small>
-                            {{/isEqual}}
-                        </p>
-                        <p>Endereço: <small>{{this.endereco_entrega}}</small></p>
-                    </div>
-                    <div class="col-md-3 text-end">
-                        <button class="btn btn-danger btn-sm" onclick="deleteEncomenda(id)">Concluir</button>
-                    </div>
-                </div>
-            </li>
+  <!-- Lista de Encomendas -->
+  <div class="card shadow-sm">
+    <div class="card-header text-dark">Encomendas Cadastradas</div>
+    <ul class="list-group list-group-flush" id="encomenda-lista">
+      {{#each encomendas}}
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-3">
+            <p><strong>Nome:</strong> {{this.nome_cliente}}</p>
+            <p><strong>Sabores:</strong></p>
+            {{#each this.sabores}}
+              <p class="ms-3">- {{this.nome}}</p>
             {{/each}}
-            <!-- Repita para cada encomenda -->
-        </ul>
-    </div>
+            <p><strong>Tipo:</strong> <small>{{this.tipo}}</small></p>
+            <p><strong>Quantidade:</strong> <small>{{this.quantidade}}</small></p>
+          </div>
+          <div class="col-md-3">
+            <p><strong>Data de Retirada:</strong> <small>{{formatDate this.data_retirada}}</small></p>
+            <p><strong>Hora de Retirada:</strong> <small>{{this.hora_retirada}}</small></p>
+          </div>
+          <div class="col-md-3">
+            <p><strong>Para Entrega:</strong>
+              {{#if this.endereco_entrega}}
+                <small>Sim</small>
+              {{else}}
+                <small>Não</small>
+              {{/if}}
+            </p>
+            <p><strong>Endereço:</strong> <small>{{this.endereco_entrega}}</small></p>
+          </div>
+          <div class="col-md-3 text-end">
+            <button class="btn btn-danger btn-sm" onclick="concluirEncomenda('{{this.id}}')">Concluir</button>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 </div>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Função para excluir encomenda
-    function deleteEncomenda(id) {
-        // Código para deletar a encomenda do sistema (substituir com a lógica do backend)
-        alert(`Encomenda com ID ${id} excluída.`)
-        }
+  // Função para excluir encomenda
+  async function concluirEncomenda(id) {
+    // Código para deletar a encomenda do sistema (substituir com a lógica do backend)
+    if (confirm("Tem certeza de que deseja concluir esta encomenda?")) {
+        const response = await axios.post(`/api/concluir-encomenda/${id}`)
+
+        if (response.data.sucesso) {
+          alert(response.data.mensagem)
+          window.location.reload()
+        } else {
+          alert(response.data.mensagem)
+        } 
+    }
+  }
 </script>

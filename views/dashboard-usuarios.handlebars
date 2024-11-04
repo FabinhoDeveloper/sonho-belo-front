@@ -1,6 +1,7 @@
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/style-dashboard.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
@@ -11,8 +12,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/admin/sabores">Sabores</a>
         <a class="nav-link" href="/admin/encomendas">Encomendas</a>
+        <a class="nav-link" href="/admin/sabores">Sabores</a>
         <a class="nav-link" href="/admin/usuarios">Administradores</a>
         <a class="nav-link" href="/login/logout">Logout</a>
       </div>
@@ -32,29 +33,33 @@
     <div class="card">
         <div class="card-header">Usuários Cadastrados</div>
         <ul class="list-group list-group-flush" id="usuario-lista">
-            <!-- Cada item da lista representa um usuário -->
-            <!-- Template de exemplo, substitua com dados do backend -->
             <li class="list-group-item d-flex align-items-center justify-content-between">
                 {{#each usuarios}}
                     <div>
                         <h5 class="mb-0">{{this.nome}}</h5>
                         <small>{{this.email}}</small><br>
                     </div>
-                    <button class="btn btn-danger btn-sm" onclick="deleteUsuario(id)">Excluir</button>
+                    {{#canDelete this.id ../usuario.id}}
+                      <button class="btn btn-danger btn-sm" onclick="deleteUsuario({{this.id}})">Excluir</button>
+                    {{/canDelete}}
                 {{/each}}
             </li>
-            <!-- Repita para cada usuário -->
         </ul>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Função para simular a exclusão de um usuário
-    function deleteUsuario(id) {
+    async function deleteUsuario(id) {
         if (confirm("Tem certeza de que deseja excluir este usuário?")) {
-            // Aqui, você poderia fazer uma chamada ao backend para excluir o usuário
-            alert(`Usuário com ID ${id} excluído.`);
+            const response = await axios.post(`/api/excluir-usuario/${id}`)
+
+            if (response.data.sucesso) {
+              alert(response.data.mensagem)
+              window.location.reload()
+            } else {
+              alert(response.data.mensagem)
+            } 
         }
     }
 </script>

@@ -10,7 +10,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/admin/encomendas">Encomendas</a>
+                <a class="nav-link" href="/admin/encomendas">Encomendas</a>
+
         <a class="nav-link" href="/admin/sabores">Sabores</a>
         <a class="nav-link" href="/admin/usuarios">Administradores</a>
         <a class="nav-link" href="/login/logout">Logout</a>
@@ -21,20 +22,20 @@
 
 <div class="container">
     <div class="card">
-        <h2>Cadastro de Sabor</h2>
+        <h2>Editar Sabor</h2>
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nome">Nome do Sabor</label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do sabor" required>
+                    <input value="{{sabor.nome}}" type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do sabor">
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
-                    <textarea class="form-control" id="descricao" name="descricao" rows="3" placeholder="Digite a descrição do sabor" required></textarea>
+                    <textarea class="form-control" id="descricao" name="descricao">{{sabor.descricao}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="imagem">Imagem</label>
-                    <input type="file" class="form-control-file" id="imagem" name="imagem" required>
+                    <input type="file" class="form-control-file" id="imagem" name="imagem">
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar Sabor</button>
             </form>
@@ -42,7 +43,14 @@
     </div>
 </div>
 
+
 <script>
+    function getIdFromUrl() {
+        const url = window.location.href;
+        const parts = url.split('/');
+        return parts[parts.length - 1]; // Assume que o ID da OS está no final da URL
+    }
+
     document.querySelector('form').addEventListener('submit', async function (event) {
         event.preventDefault();
         
@@ -57,13 +65,11 @@
         formData.append('descricao', descricao);
         formData.append('file', imagem); // Adiciona o arquivo 'imagem' com a chave 'file'
 
+        const idSabor = getIdFromUrl()
+
         try {
             // Envia a requisição para o endpoint do backend
-            const response = await axios.post('/api/cadastro-sabor', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
+            const response = await axios.post(`/api/editar-sabor/${idSabor}`, formData);
 
             // Processa a resposta
             if (response.data.sucesso) {
@@ -74,7 +80,7 @@
             }
         } catch (error) {
             console.error(error);
-            alert("Erro ao cadastrar sabor.");
+            alert("Erro ao editar sabor.");
         }
     });
 </script>

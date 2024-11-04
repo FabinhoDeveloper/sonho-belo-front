@@ -11,8 +11,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/admin/sabores">Sabores</a>
         <a class="nav-link" href="/admin/encomendas">Encomendas</a>
+        <a class="nav-link" href="/admin/sabores">Sabores</a>
         <a class="nav-link" href="/admin/usuarios">Administradores</a>
         <a class="nav-link" href="/login/logout">Logout</a>
       </div>
@@ -24,7 +24,7 @@
         <h2 class="card-header text-center">Gerenciamento de Sabores</h2>
 
         <div class="d-flex justify-content-end mb-3">
-          <a href="/admin/cadastro-sabor" class="btn btn-personalizado">Cadastrar Novo Sabor</a>
+          <a href="/admin/cadastro-sabor" class="btn btn-success">Cadastrar Novo Sabor</a>
         </div>
 
         <ul class="list-group list-group-flush" id="sabor-lista">
@@ -38,8 +38,8 @@
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-secondary btn-sm me-2" onclick="editSabor(id)">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="deleteSabor(id)">Excluir</button>
+                        <a class="btn btn-secondary btn-sm me-2" href="/admin/editar-sabor/{{this.id}}">Editar</a>
+                        <button class="btn btn-danger btn-sm" onclick="deleteSabor({{this.id}})">Excluir</button>
                     </div>
                 </li>
             {{/each}}
@@ -49,4 +49,18 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  async function deleteSabor(id) {
+    if (confirm("Deseja excluir esse sabor?")) {
+      const response = await axios.post(`/api/excluir-sabor/${id}`)
+
+      if(response.data.sucesso) {
+        alert("Sabor excluído com sucesso!")
+        window.location.reload()
+      } else {
+        alert("Erro ao excluir sabor!")
+      }
+    }
+  }
+</script>
 

@@ -1,5 +1,9 @@
 // Configuração das variáveis de ambiente
 
+// Middleware de login
+
+const auth_middlewares = require("./middlewares/auth-middlewares")
+
 const dotenv = require("dotenv").config()
 
 // Importação das dependencias
@@ -54,7 +58,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Configuração das rotas
 
 app.use("/", mainRoutes)
-app.use("/admin", adminRoutes)
+app.use("/admin", auth_middlewares.verificaLoginAdministrador, adminRoutes)
 app.use("/login", autenticacaoRoutes)
 app.use("/api", proxyApi)
 

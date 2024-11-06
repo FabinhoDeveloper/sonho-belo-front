@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const api = require("../config/axiosConfig")
+const auth_middlewares = require("../middlewares/auth-middlewares")
 
 router.get("/", async (req, res) => {
     const response = await api.get("/sabor/obter")
@@ -31,6 +32,10 @@ router.get("/admin", async (req, res) => {
         title: "Sonho Belo - Login",
         primeiroLogin
     })
+})
+
+router.get("/primeiro-cadastro", auth_middlewares.verificaPrimeiroLogin, (req, res) => {
+    res.render("dashboard-primeiro-cadastro")
 })
 
 module.exports = router

@@ -55,9 +55,7 @@ router.get("/encomendas", async (req, res) => {
 
 // Paginas relacionadas a usuario
 
-router.get("/primeiro-cadastro", (req, res) => {
-    res.render("dashboard-primeiro-cadastro")
-})
+
 
 router.get("/usuarios", async (req, res) => {
     const response = await api.get("/usuario/obter")
